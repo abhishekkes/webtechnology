@@ -1,0 +1,34 @@
+<%@page import="java.sql.*"  %>
+<!DOCTYPE html>
+<html>
+    <head>
+         <title>Login Page</title>
+    </head>
+    <body>
+        <%
+            String un,pd;
+            un=request.getParameter("t1");
+            pd=request.getParameter("t2");
+            try{  
+Class.forName("com.mysql.jdbc.Driver");  
+  
+Connection con=DriverManager.getConnection(  
+"jdbc:mysql://localhost:3306/united","root","");  
+    
+Statement stmt=con.createStatement();  
+  
+ResultSet rs=stmt.executeQuery("select * from emp");  
+  
+while(rs.next())
+{
+if(un.equals(rs.getString(1)) && pd.equals(rs.getString(2)))
+    out.print("Login Success");
+} 
+con.close(); 
+  
+}catch(Exception e){out.println(e);}  
+
+
+        %>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<%@page import="java.sql.*" errorPage="error.jsp"%>
+<%
+            String un,pd,mb;
+            un=request.getParameter("t1");
+            pd=request.getParameter("t2");
+            mb=request.getParameter("t3");
+            try
+            {
+            PreparedStatement pst;
+            Class.forName("com.mysql.jdbc.Driver");  
+  
+Connection con=DriverManager.getConnection(  
+"jdbc:mysql://localhost:3306/united","root","");
+pst=con.prepareStatement("insert into emp(uname,pass,mob) values(?,?,?)");
+	pst.setString(1,un);	
+	pst.setString(2,pd);
+	pst.setString(3,mb);	
+	int x=pst.executeUpdate();
+	if(x==1)
+	out.println("Record has been saved");
+	else
+                    out.println("Record Not saved");
+	
+			
+                     }
+                catch(Exception e)
+	{
+	out.println("please check the data "+e.getMessage());
+	}
+
+            
+        %>
