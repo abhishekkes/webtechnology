@@ -1,0 +1,37 @@
+package jdbcappitg1;
+import java.util.Scanner;
+import java.sql.*;
+public class JDBCappITG1 
+{
+    public static void main(String[] args)
+    {
+       String un,pd;
+       PreparedStatement pst;
+       Scanner sc=new Scanner(System.in);
+                int x;
+                try
+                {
+                System.out.println("enter username");
+                un=sc.next();
+               
+ Class.forName("com.mysql.jdbc.Driver");  
+ Connection con=DriverManager.getConnection(  
+"jdbc:mysql://localhost:3306/united","root",""); 
+pst=con.prepareStatement("delete from emp where uname=?");
+		pst.setString(1,un);
+		x=pst.executeUpdate();
+		
+	
+	if(x==1)
+	{
+	System.out.println("Record has been updated");
+	}
+			
+                }
+                catch(Exception e)
+	{
+	System.out.println("please check the data "+e.getMessage());
+	}
+    }
+    
+}

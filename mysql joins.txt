@@ -1,0 +1,132 @@
+create database united;
+
+
+use united;
+
+create table student (sname varchar(40),id int,mob varchar(10));
+
+create table student_info (fname varchar(40),id int,address varchar(80));
+
+insert into student_info values('fname2',2,"Lucknow");
+
+insert into student_info values('fname3',3,"Varanasi");
+
+insert into student_info values('fname1',1,"Prayagraj");
+
+insert into student_info values('fname5',9,"Kanpur");
+
+insert into student values('stud1',1,"7765628932");
+
+insert into student values('stud2',2,"5865628932");
+
+insert into student values('stud3',3,"5865628932");
+
+insert into student values('stud4',4,"65628932");
+
+insert into student values('stud5',5,"2365628932");
+
+select * from student;
++-------+------+------------+
+| sname | id   | mob        |
++-------+------+------------+
+| stud1 |    1 | 7765628932 |
+| stud2 |    2 | 5865628932 |
+| stud3 |    3 | 5865628932 |
+| stud4 |    4 | 65628932   |
+| stud5 |    5 | 2365628932 |
++-------+------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from student_info;
++--------+------+------------+
+| fname  | id   | address    |
++--------+------+------------+
+| fname2 |    2 | Lucknow    |
+| fname3 |    3 | Varanasi   |
+| fname1 |    1 | Prayagraj  |
+| fname5 |    9 | Kanpur |
++--------+------+------------+
+4 rows in set (0.00 sec)
+
+Inner Join
+________________________________________________
+select student.sname,student_info.fname,student_info.address from student inner join student_info on student.id=student_info.id;
+
+
+
+
++-------+--------+-----------+
+| sname | fname  | address   |
++-------+--------+-----------+
+| stud1 | fname1 | Prayagraj |
+| stud2 | fname2 | Lucknow   |
+| stud3 | fname3 | Varanasi  |
++-------+--------+-----------+
+3 rows in set (0.00 sec)
+
+
+select student.sname,student_info.fname,student_info.address from student left join student_info on student.id=student_info.id;
+
+
+
+
+
++-------+--------+-----------+
+| sname | fname  | address   |
++-------+--------+-----------+
+| stud1 | fname1 | Prayagraj |
+| stud2 | fname2 | Lucknow   |
+| stud3 | fname3 | Varanasi  |
+| stud4 | NULL   | NULL      |
+| stud5 | NULL   | NULL      |
++-------+--------+-----------+
+5 rows in set (0.03 sec)
+
+select student.sname,student_info.fname,student_info.address from student right join student_info on student.id=student_info.id;
+
+
+
+
++-------+--------+------------+
+| sname | fname  | address    |
++-------+--------+------------+
+| stud2 | fname2 | Lucknow    |
+| stud3 | fname3 | Varanasi   |
+| stud1 | fname1 | Prayagraj  |
+| NULL  | fname5 | Kanpur     |
++-------+--------+------------+
+4 rows in set (0.00 sec)
+
+
+select * from student full join student_info;
+
+
+
+
+select * from student full join student_info
+
+
+sname	id	mob	fname	id	address	
+stud1	1	7765628932	fname2	2	Lucknow	
+stud1	1	7765628932	fname3	3	Varanasi	
+stud1	1	7765628932	fname1	1	Prayagraj	
+stud1	1	7765628932	fname5	9	Kanpur	
+stud2	2	5865628932	fname2	2	Lucknow	
+stud2	2	5865628932	fname3	3	Varanasi	
+stud2	2	5865628932	fname1	1	Prayagraj	
+stud2	2	5865628932	fname5	9	Kanpur	
+stud3	3	5865628932	fname2	2	Lucknow	
+stud3	3	5865628932	fname3	3	Varanasi	
+stud3	3	5865628932	fname1	1	Prayagraj	
+stud3	3	5865628932	fname5	9	Kanpur	
+stud4	4	65628932	fname2	2	Lucknow	
+stud4	4	65628932	fname3	3	Varanasi	
+stud4	4	65628932	fname1	1	Prayagraj	
+stud4	4	65628932	fname5	9	Kanpur	
+stud5	5	2365628932	fname2	2	Lucknow	
+stud5	5	2365628932	fname3	3	Varanasi	
+stud5	5	2365628932	fname1	1	Prayagraj	
+stud5	5	2365628932	fname5	9	Kanpur	
+
+
+mysql>

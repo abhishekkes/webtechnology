@@ -1,0 +1,17 @@
+<html>
+<body onload="getTime();">
+Current Time: <span id="txt"></span>  
+<script>  
+function getTime(){  
+var today=new Date();  
+var h=today.getHours();  
+var m=today.getMinutes();  
+var s=today.getSeconds();  
+ 
+
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;  
+  
+}  
+</script>  
+</body>
+</html>

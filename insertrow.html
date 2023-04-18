@@ -1,0 +1,35 @@
+<html>
+<head>
+<script type="text/javascript">
+var total=new Number;
+function insRow()
+  {
+  
+  var x=document.getElementById('myTable').insertRow(0)
+  var y=x.insertCell(0)
+  var z=x.insertCell(1)
+  var amt=new Number(document.getElementById('txt2').value);
+  y.innerHTML=document.getElementById('txt1').value;
+  z.innerHTML=document.getElementById('txt2').value;
+  total=total+amt
+  document.getElementById('t1').innerHTML=total
+  }
+</script>
+</head>
+
+<body>
+Col1<input type="text" id="txt1">
+Col2<input type="text" id="txt2">
+
+<table id="myTable" border="1">
+
+</table>
+<br />
+<input type="button" onclick="insRow()" value="Insert row">
+<div id="t1"></div>
+</body>
+</html>
+
+
+
+

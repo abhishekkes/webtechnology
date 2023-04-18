@@ -1,0 +1,99 @@
+--> select the database to school
+use school;
+
+--->change the delimeter to // again
+DELIMITER //
+
+
+---> create the procedure
+
+CREATE PROCEDURE empdetails()
+BEGIN
+	SELECT * FROM emp;
+END 
+//
+
+--->change the delimeter to ; again
+DELIMITER ;
+
+--->call the procedure
+CALL empdetails;
+
+--->drop the procedure
+DROP PROCEDURE empdetails;
+
+
+mysql> use school;
+Database changed
+mysql> DELIMITER //
+mysql>
+mysql> CREATE PROCEDURE getempdetails()
+    -> BEGIN
+    -> SELECT *  FROM employee;
+    -> END //
+Query OK, 0 rows affected (0.00 sec)
+
+_______________________________
+Changing Delimeter to ;
+
+mysql> DELIMITER ;
+
+_________________________________
+Calling Stored Procedure
+
+mysql> call getempdetails;
++------+-----+--------+---------+
+| name | id  | salary | Dept_id |
++------+-----+--------+---------+
+| John | 110 |  25000 |     201 |
+| John | 111 |  25000 |     201 |
++------+-----+--------+---------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+______________________________________
+Removing Stored Procedure
+
+mysql> drop procedure getempdetails;
+
+
+mysql> drop procedure if exists  getempdetails;
+
+
+DELIMITER &&  
+CREATE PROCEDURE get_tot_salary ()  
+BEGIN  
+    SELECT sum(salary) AS Total_Salary FROM employee;    
+END &&  
+DELIMITER ;
+
+call get_tot_salary;
+
+
+
+
+
+DELIMITER &&  
+CREATE PROCEDURE get_student (IN var1 INT)  
+BEGIN  
+    SELECT * FROM student_info LIMIT var1;  
+       
+END &&  
+DELIMITER ; 
+
+
+CALL get_student(2);
++--------+------+----------+
+| fname  | id   | address  |
++--------+------+----------+
+| fname2 |    2 | Lucknow  |
+| fname3 |    3 | Varanasi |
++--------+------+----------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
+

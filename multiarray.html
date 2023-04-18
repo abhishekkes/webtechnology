@@ -1,0 +1,31 @@
+<html>
+<head>
+</head>
+<body>
+<table border="1px">
+<script language="javascript">
+var MultiArray = new Array(3)
+MultiArray [0] = new Array(3)
+MultiArray [0][0] = "Tom"
+MultiArray [0][1] = "scientist"
+MultiArray [0][2] = "scientist"
+MultiArray [1] = new Array(2)
+MultiArray [1][0] = "Beryl"
+MultiArray [1][1] = "engineer"
+MultiArray [2] = new Array(1)
+MultiArray [2][0] = "Ann"
+
+
+for(var i=0;i<MultiArray.length;i++)
+{
+document.write("<tr>");
+for(var j=0;j<MultiArray[i].length;j++)
+{
+document.write("<td>"+MultiArray [i][j]+"</td>");
+}
+document.write("</tr>");
+}
+</script>
+</table>
+</body>
+</html>

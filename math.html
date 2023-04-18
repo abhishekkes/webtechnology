@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function myfun()
+{    
+var x=document.getElementById('t1').value;
+var y=document.getElementById('t2').value;
+var bmi=y/Math.pow(x,2);
+document.getElementById('p1').innerHTML=bmi;    
+}
+
+</script>
+</head>
+<body>
+Height<input type="text" id="t1"><br>
+Weight<input type="text" id="t2"><br>
+<input type="button" onClick="myfun()" value="Calculate BMI">
+<br>
+BMI:<p id="p1"></p>    
+   
+
+</body>
+</html>

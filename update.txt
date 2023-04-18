@@ -1,0 +1,39 @@
+package jdbcappitg1;
+import java.util.Scanner;
+import java.sql.*;
+public class JDBCappITG1 
+{
+    public static void main(String[] args)
+    {
+       String oun,pd,opd;
+       PreparedStatement pst;
+       Scanner sc=new Scanner(System.in);
+                int x;
+                try
+                {
+                System.out.println("enter New Password,username and old password");
+                pd=sc.next();
+                oun=sc.next();
+                opd=sc.next();
+ Class.forName("com.mysql.jdbc.Driver");  
+ Connection con=DriverManager.getConnection(  
+"jdbc:mysql://localhost:3306/united","root",""); 
+pst=con.prepareStatement("update emp set pass=? where uname=? and pass=?");
+			pst.setString(1,pd);	
+			pst.setString(2,oun);
+			pst.setString(3,opd);
+		
+	x=pst.executeUpdate();
+	if(x==1)
+	{
+	System.out.println("Record has been updated");
+	}
+			
+                }
+                catch(Exception e)
+	{
+	System.out.println("please check the data "+e.getMessage());
+	}
+    }
+    
+}
