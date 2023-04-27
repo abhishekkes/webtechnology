@@ -1,39 +1,37 @@
-package jdbcappitg1;
-import java.util.Scanner;
+package jdbccsa1;
 import java.sql.*;
-public class JDBCappITG1 
-{
-    public static void main(String[] args)
+import java.util.Scanner;
+public class MyMain {
+    public static void main(String[] args) 
     {
-       String un,pd,mb;
-       PreparedStatement pst;
-       Scanner sc=new Scanner(System.in);
-                int x;
-                try
-                {
-                System.out.println("enter username,password & Mobile No.");
-                un=sc.next();
-                pd=sc.next();
-                mb=sc.next();
-Class.forName("com.mysql.jdbc.Driver");  
-Connection con=DriverManager.getConnection(  
-"jdbc:mysql://localhost:3306/united","root",""); 
-pst=con.prepareStatement("insert into emp(uname,pass,mob) values(?,?,?)");
-	pst.setString(1,un);	
-	pst.setString(2,pd);
-	pst.setString(3,mb);	
-	x=pst.executeUpdate();
-	if(x==1)
-	System.out.println("Record has been saved");
-	else
-        System.out.println("Record Not saved");
-	
-			
+        Scanner sc=new Scanner(System.in);
+        String un,adr,fn,mob;
+        System.out.println("Enter Uname,Address,Fname,Mobile");
+        un=sc.nextLine();
+        adr=sc.nextLine();
+        fn=sc.nextLine();
+        mob=sc.nextLine();
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/csa", "root", "");
+            PreparedStatement pst=con.prepareStatement("insert into student(uname,address,fname,mobile) values (?,?,?,?)");
+            pst.setString(1, un);
+            pst.setString(2, adr);
+            pst.setString(3, fn);
+            pst.setString(4, mob);
+            int x=pst.executeUpdate();
+            if(x==1)
+                System.out.println("Record Inserted");
+            else
+                System.out.println("Record not saved");
+            con.close();
+            
         }
-                catch(Exception e)
-	{
-	System.out.println("please check the data "+e.getMessage());
-	}
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
     
 }

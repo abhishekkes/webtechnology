@@ -1,0 +1,30 @@
+ACAD_dETAILS
+{
+background-color: #ffffff;
+width: 100%;
+}
+STUDENT_INFO
+{
+background-color: #ffff00;
+display: block;
+margin-bottom: 30pt;
+margin-left: 0;
+border-color: red;
+border-style: dotted;
+}
+UNIV_ROLL
+{
+color: #FF0000;
+font-size: 20pt;
+}
+NAME
+{
+color: #0000FF;
+font-size: 20pt;
+}
+BRANCH,YEAR,PER
+{
+display: block;
+color: #000000;
+margin-left: 20pt;
+}

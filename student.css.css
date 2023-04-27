@@ -1,0 +1,28 @@
+csa
+{
+background-color: #ff00ff;
+width: 100%;
+}
+student
+{
+background-color: #ffff00;
+display: block;
+margin-bottom: 30pt;
+margin-left: 0;
+}
+roll_no
+{
+color: #FF0000;
+font-size: 20pt;
+}
+name
+{
+color: #0000FF;
+font-size: 20pt;
+}
+branch,semester
+{
+display: block;
+color: #000000;
+margin-left: 20pt;
+}

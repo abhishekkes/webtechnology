@@ -1,0 +1,33 @@
+CATALOG
+{
+background-color: #ffffff;
+width: 100%;
+}
+CD
+{
+background-color: #ffff00;
+display: block;
+border-color: red;
+border-style: dotted;
+border-width: 30px;
+margin-bottom: 30pt;
+margin-left: 0;
+}
+TITLE
+{
+color: #FF0000;
+background-color: green;
+font-size: 20pt;
+}
+ARTIST
+{
+color: #0000FF;
+background-color: yellow;
+font-size: 20pt;
+}
+COUNTRY,PRICE,YEAR,COMPANY
+{
+display: block;
+color: #000000;
+margin-left: 20pt;
+}

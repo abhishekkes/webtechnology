@@ -5,22 +5,21 @@ public class MyMain {
     public static void main(String[] args) 
     {
         Scanner sc=new Scanner(System.in);
-        String un,adr,fn,mob;
-        System.out.println("Enter Uname to update Address");
+        String un;
+        System.out.println("Enter Uname to Delete");
         un=sc.nextLine();
-        adr=sc.nextLine();
+       
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/csa", "root", "");
-            PreparedStatement pst=con.prepareStatement("update student set address=? where uname=?");
-            pst.setString(1, adr);
-            pst.setString(2, un);
+            PreparedStatement pst=con.prepareStatement("delete from student where uname=?");
+            pst.setString(1, un);
             int x=pst.executeUpdate();
             if(x==1)
-                System.out.println("Record Updated");
+                System.out.println("Record Deleted");
             else
-                System.out.println("Record not Updated");
+                System.out.println("Record not Deleted");
             con.close();
             
         }
